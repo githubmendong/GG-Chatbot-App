@@ -19,7 +19,7 @@ import {
 import {MenuButtons} from '../Utils/MenuButtons';
 import {SystemTime} from '../Utils/SytemTime';
 
-export const IntroSystemChat = ({}:any) => {
+export const IntroSystemChat = ({setText}:any) => {
   return (
     <>
       <View
@@ -81,7 +81,7 @@ export const IntroSystemChat = ({}:any) => {
     
     }
       >
-        <MenuButtons />
+        <MenuButtons setText={setText} />
       </TouchableOpacity>
       <SystemTime />
     </>

@@ -25,7 +25,7 @@ import {SelectSystemChat} from './Utils/SelectSystemChat';
 import {SuggestedSearch} from './Utils/SuggestedSearch';
 
 const WIDTH = Dimensions.get('window').width;
-export const CHATURL = 'https://d85e-2001-2d8-6b80-ac8b-11a1-efc0-66b3-d8f8.jp.ngrok.io';
+export const CHATURL = 'https://0726-2001-2d8-6b80-ac8b-95be-5fd2-e94f-5112.jp.ngrok.io';
 
 const styles = StyleSheet.create({
   input: {
@@ -40,18 +40,25 @@ const styles = StyleSheet.create({
   },
 });
 
-let scrollView: ScrollView;
-let ukey = 0;
+let SCROLLVIEW: ScrollView;
+let UKEY = 0;
+export let GLOBALBOOL:boolean = false;
+export const GBBOOLCH = ()=>{
+  GLOBALBOOL = !GLOBALBOOL;
+};
 
 export const Chatting = () => {
+  // const [menuAddChatting, setMenuAddChatting] = useState<boolean>(false);
   const [text, setText] = useState<string>('');
   const [topSearch, setTopSearch] = useState<string[]>([]);
-  const [components, setComponents] = useState<JSX.Element[]>([<IntroSystemChat key={ukey}/>]);
+  const [components, setComponents] = useState<JSX.Element[]>([<IntroSystemChat key={UKEY} setText={setText}/>]);
 //http://localhost:8000/boriapp/get/
   const getThree = async ()=>{
     const result = await axios.get(`${CHATURL}/boriapp/get/`);
     return setTopSearch([result.data.First,result.data.Second,result.data.Third]);
   };
+
+
   useEffect(() => {
     //#region 서버에서 검색어 상위3개 받아오는 코드
       getThree();
@@ -61,27 +68,30 @@ export const Chatting = () => {
     if (text.length === 0){
       return;
     }
-    ukey++;
+    UKEY++;
     setComponents([
       ...components,
-      <UserChat key={ukey} text={_text} />,
-      <SelectSystemChat key={ukey + 1000} text={_text} ukey={ukey} scrollView={scrollView} />,
+      <UserChat key={UKEY} text={_text} />,
+      <SelectSystemChat key={UKEY + 1000} text={_text} ukey={UKEY} scrollView={SCROLLVIEW} />,
     ]);
 
     setText('');
     // scrollView.scrollToEnd({animated: true});
   };
+  useEffect(()=>{
+    addChattings(text);
+  },[GLOBALBOOL]);
 
   const onChangeText = (value: string) => {
     setText(value);
   };
 
   const ExAddChatting = (_text: string) => {
-    ukey++;
+    UKEY++;
     setComponents([
       ...components,
-      <UserChat key={ukey} text={_text} />,
-      <SelectSystemChat key={ukey + 1000} text={_text} ukey={ukey} scrollView={scrollView} />,
+      <UserChat key={UKEY} text={_text} />,
+      <SelectSystemChat key={UKEY + 1000} text={_text} ukey={UKEY} scrollView={SCROLLVIEW} />,
     ]);
     setText('');
     // scrollView.scrollToEnd({animated: true});
@@ -91,7 +101,7 @@ export const Chatting = () => {
     <>
       <ScrollView
         style={{backgroundColor: '#f7f6f7'}}
-        ref={(ref: any) => (scrollView = ref)}>
+        ref={(ref: any) => (SCROLLVIEW = ref)}>
         {components.map(value => {
           return value;
         })}
@@ -102,7 +112,7 @@ export const Chatting = () => {
           suggestedAddChatting={ExAddChatting}
         />
       ) : (
-        <AutoComplete text={text} ukey={ukey} addChattings={addChattings} />
+        <AutoComplete text={text} ukey={UKEY} addChattings={addChattings} />
       )}
       <View style={{ flexDirection: 'row'}}>
       <TextInput

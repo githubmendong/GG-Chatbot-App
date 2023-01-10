@@ -17,6 +17,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import { GBBOOLCH } from '../Chatting';
 const WIDTH = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
@@ -45,12 +46,13 @@ const styles = StyleSheet.create({
   },
 });
 
-export const MenuButtons = ({}:any) => {
+export const MenuButtons = ({setText}:any) => {
   return (
     <View style={styles.boxst}>
       <View style={{flexDirection: 'row'}}>
         <TouchableOpacity style={styles.primary} onPress={()=>{
-          console.log('test')
+          setText('학사일정');
+          GBBOOLCH();
         }} >
         <ImageBackground
             source={{
