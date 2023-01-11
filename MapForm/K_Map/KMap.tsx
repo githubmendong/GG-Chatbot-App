@@ -77,12 +77,12 @@ const send = async (latitude:any, longitude:any) => {
   await webviewRef.current.postMessage(sendLoction);
 };
 
-  useEffect(() => {
-    PermissionsAndroid.requestMultiple([
-      PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
-      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-    ]);
-  }, []);
+  // useEffect(() => {
+  //   PermissionsAndroid.requestMultiple([
+  //     PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
+  //     PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+  //   ]);
+  // }, []);
 
   useEffect(() => {
     const _watchId = Geolocation.watchPosition(

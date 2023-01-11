@@ -7,15 +7,24 @@
 /* eslint-disable eslint-comments/no-unused-disable */
 /* eslint-disable keyword-spacing */
 import { Chatting } from './chatbot-src/Chatting';
-import { Ws36 } from './WS/Ws36';
+import { Ws36 } from './MapForm/Ws36';
 import { NavigationContainer, useNavigation  } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
-import { Button, Text, View } from 'react-native';
+import { Button, PermissionsAndroid, Text, View } from 'react-native';
+import { useEffect } from 'react';
 
 
 const HomeScreen = () => {
   const navigation:any = useNavigation();
+
+  useEffect(() => {
+    PermissionsAndroid.requestMultiple([
+      PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+    ]);
+  }, []);
+  
   return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <Text>Home Screen</Text>
