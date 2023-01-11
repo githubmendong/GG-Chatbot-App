@@ -77,13 +77,6 @@ const send = async (latitude:any, longitude:any) => {
   await webviewRef.current.postMessage(sendLoction);
 };
 
-  // useEffect(() => {
-  //   PermissionsAndroid.requestMultiple([
-  //     PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
-  //     PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-  //   ]);
-  // }, []);
-
   useEffect(() => {
     const _watchId = Geolocation.watchPosition(
       position => {
@@ -92,7 +85,6 @@ const send = async (latitude:any, longitude:any) => {
       },
       error => {
         console.log(error);
-        return
       },
       {
         enableHighAccuracy: true,
@@ -117,7 +109,7 @@ return(
     onLoadEnd={sendMessage}
     />
     <Search webviewRef={webviewRef} state={state}/>
-    <Bori state={state}/>
+    {/* <Bori state={state}/> */}
     <Screen _state={open} _name={name}/>
   </>
   );
