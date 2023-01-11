@@ -24,6 +24,7 @@ import {GuideModal} from './Utils/GuideModal';
 import {SelectSystemChat} from './Utils/SelectSystemChat';
 import {SuggestedSearch} from './Utils/SuggestedSearch';
 
+export let POSTDATA:string = '';
 const WIDTH = Dimensions.get('window').width;
 export const CHATURL = 'https://4b52-2001-2d8-6b80-ac8b-e585-4361-dddc-7031.jp.ngrok.io';
 
@@ -84,6 +85,7 @@ export const Chatting = () => {
 
   const onChangeText = (value: string) => {
     setText(value);
+    
   };
 
   const ExAddChatting = (_text: string) => {

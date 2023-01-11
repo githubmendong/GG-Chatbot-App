@@ -82,7 +82,6 @@ const send = async (latitude:any, longitude:any) => {
       PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
     ]);
-    sendMessage();
   }, []);
 
   useEffect(() => {
@@ -93,6 +92,7 @@ const send = async (latitude:any, longitude:any) => {
       },
       error => {
         console.log(error);
+        return
       },
       {
         enableHighAccuracy: true,
@@ -114,6 +114,7 @@ return(
     source={{uri: 'file:///android_asset/kakaomap.html'}}
     ref={handleSetRef}
     allowFileAccess={true}
+    onLoadEnd={sendMessage}
     />
     <Search webviewRef={webviewRef} state={state}/>
     <Bori state={state}/>
