@@ -40,14 +40,6 @@ const HomeScreen = () => {
   );
 };
 
-const ProfileScreen = () => {
-  return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Text>This is profile</Text>
-      </View>
-  );
-};
-
 
 function App() {
   const Tab = createBottomTabNavigator();
