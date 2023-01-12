@@ -10,14 +10,21 @@
  * @format
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { Scroll } from './components/Scroll';
+import { PermissionsAndroid } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
 const Home = () => {
+  useEffect(() => {
+    PermissionsAndroid.requestMultiple([
+      PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+    ]);
+  }, []);
   return (
     <Scroll/>
   );

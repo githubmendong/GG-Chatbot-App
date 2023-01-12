@@ -78,14 +78,6 @@ const send = async (latitude:any, longitude:any) => {
 };
 
   useEffect(() => {
-    PermissionsAndroid.requestMultiple([
-      PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
-      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-    ]);
-    sendMessage();
-  }, []);
-
-  useEffect(() => {
     const _watchId = Geolocation.watchPosition(
       position => {
         const {latitude, longitude } = position.coords;
@@ -114,9 +106,10 @@ return(
     source={{uri: 'file:///android_asset/kakaomap.html'}}
     ref={handleSetRef}
     allowFileAccess={true}
+    onLoadEnd={sendMessage}
     />
     <Search webviewRef={webviewRef} state={state}/>
-    <Bori state={state}/>
+    {/* <Bori state={state}/> */}
     <Screen _state={open} _name={name}/>
   </>
   );

@@ -20,6 +20,7 @@ import {GuideModal} from './Utils/GuideModal';
 import {SelectSystemChat} from './Utils/SelectSystemChat';
 import {SuggestedSearch} from './Utils/SuggestedSearch';
 
+export let POSTDATA:string = '';
 const WIDTH = Dimensions.get('window').width;
 export const CHATURL = 'https://419b-220-68-223-111.jp.ngrok.io';
 
@@ -80,6 +81,7 @@ export const Chatting = () => {
 
   const onChangeText = (value: string) => {
     setText(value);
+    
   };
 
   const ExAddChatting = (_text: string) => {
