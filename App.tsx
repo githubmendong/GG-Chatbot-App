@@ -6,7 +6,31 @@ import { NavigationContainer, useNavigation  } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
 import Home from './Home/Home';
+// import { Alert, BackHandler, Button, PermissionsAndroid, Text, ToastAndroid, View } from 'react-native';
+// import { useEffect } from 'react';
+// const toastWithDurationHandler = () => {
+//   ToastAndroid.show("'뒤로' 버튼을  한번 더 누르시면 종료됩니다.", ToastAndroid.SHORT);
+// };
 
+// let time = 0; // 맨트 노출 시간
+// const onAndroidBackPress = () => {
+//     time += 1;
+//       toastWithDurationHandler(); // 뒤로가기 토스트 바 
+//     if (time === 1) {
+//       setTimeout(() => time = 0, 2000);
+//     }
+//     else if (time === 2) {
+//       BackHandler.exitApp(); // 어플 종료
+//       return false;
+//     }
+//   return true;
+// };
+// useEffect(() => {
+//   BackHandler.addEventListener('hardwareBackPress', onAndroidBackPress);
+//   return () => {
+//     BackHandler.removeEventListener('hardwareBackPress', onAndroidBackPress);
+//   };
+// }, []);
 
 function App() {
   const Tab = createBottomTabNavigator();

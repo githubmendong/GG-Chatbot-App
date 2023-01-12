@@ -137,7 +137,7 @@ function Search({webviewRef, state}:any )
                 }}
                 ChevronIconComponent={<Icon name="down" size={20} color="black" />}
                 ClearIconComponent={<Icon name="close" size={20} color="black" />}
-                emptyResultText="오늘 점심 뭐 먹어?"
+                emptyResultText="검색 결과가 없습니다."
                 onClear={() => set()}
                 showChevron = {true}
                 closeOnBlur={true}

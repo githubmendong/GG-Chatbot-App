@@ -39,7 +39,9 @@ function KMap({webviewRef}:any) {
   };
 
 const sendMessage = async () => {
-  let getData:any;
+  try
+  {
+    let getData:any;
 
   await fetch(`${URL}/borimap`)
   .then((response) => response.json())
@@ -62,19 +64,30 @@ const sendMessage = async () => {
    list
   );
   await webviewRef.current.postMessage(sendData);
+  }
+  catch(error)
+  {
+  }
+  
 };
 
 const send = async (latitude:any, longitude:any) => {
-  const sendLoction = JSON.stringify([
-    {
-      picket : 'me',
-    },
-    {
-      lat : latitude,
-      lng : longitude,
-    },
-  ]);
-  await webviewRef.current.postMessage(sendLoction);
+  try
+  {
+    const sendLoction = JSON.stringify([
+      {
+        picket : 'me',
+      },
+      {
+        lat : latitude,
+        lng : longitude,
+      },
+    ]);
+    await webviewRef.current.postMessage(sendLoction);
+  }
+  catch(error)
+  {
+  }
 };
 
   useEffect(() => {
