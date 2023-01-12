@@ -122,7 +122,7 @@
     /////////////////////////////////////////////////////////
     // GPS
     /////////////////////////////////////////////////////////
-    var gpsContent = '<div id="controlCustomOverlay"><img id ="left" src="https://i.ibb.co/bgDSwk2/aaaa.png" style="height: 70px; width: 70;)"></div>';
+    var gpsContent = '<div id="controlCustomOverlay"><img id ="left" src="KakaoTalk_20230112_101244104.png" style="height: 70px; width: 70;)"></div>';
     var gps = new kakao.maps.CustomOverlay({
       content: gpsContent,
       map: map
@@ -293,7 +293,8 @@
     //#endregion
 
     document.addEventListener("message", async (e) => {
-      var latlng = JSON.parse(e.data)
+      try{
+        var latlng = JSON.parse(e.data)
       if (latlng[0].picket == "marker") {
         for (var i = 1; i < latlng.length; i++) {
           mark(latlng[i].latitude, latlng[i].longtitude, latlng[i].name, latlng[i].imgName, latlng[i].address)
@@ -319,6 +320,9 @@
       }
       else {
       }
+      }
+      catch(err)
+      {}
     })
 
     function toggleRoadview(position) {
@@ -359,8 +363,12 @@
     }
 
     function call_search_state() {
+      try{
       set_search_state();
       window.ReactNativeWebView.postMessage(search_state);
+      }
+      catch(err)
+      {}
     } 
 
     //#region 번호판
@@ -433,8 +441,13 @@
     }
 
     function open_screen(_name){
-      return function(){
+      try{
+        return function(){
         window.ReactNativeWebView.postMessage(_name);
+      }
+      }
+      catch(err){
+
       }
     }
 

@@ -26,7 +26,7 @@ import {SuggestedSearch} from './Utils/SuggestedSearch';
 
 export let POSTDATA:string = '';
 const WIDTH = Dimensions.get('window').width;
-export const CHATURL = 'https://4b52-2001-2d8-6b80-ac8b-e585-4361-dddc-7031.jp.ngrok.io';
+export const CHATURL = 'https://c891-220-68-223-111.jp.ngrok.io';
 
 const styles = StyleSheet.create({
   input: {

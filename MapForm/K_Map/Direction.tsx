@@ -25,7 +25,9 @@ const Sensor = ({webviewRef}:any) => {
     });
 
     const sendDirection = async () => {
-          const latlng = new Array();
+      try
+      {
+        const latlng = new Array();
           const data = {
             picket : 'direction',
             };
@@ -33,6 +35,11 @@ const Sensor = ({webviewRef}:any) => {
             latlng.push(direction);
           const sendData = JSON.stringify(latlng);
           await webviewRef.current.postMessage(sendData);
+      }
+      catch(error)
+      {
+
+      }  
     };
     return(
       <></>
