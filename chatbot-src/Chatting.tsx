@@ -2,10 +2,6 @@
 
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable no-unreachable */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import axios from 'axios';
 import React, {useEffect, useState} from 'react';
 import {
@@ -25,7 +21,7 @@ import {SelectSystemChat} from './Utils/SelectSystemChat';
 import {SuggestedSearch} from './Utils/SuggestedSearch';
 
 const WIDTH = Dimensions.get('window').width;
-export const CHATURL = 'https://4b52-2001-2d8-6b80-ac8b-e585-4361-dddc-7031.jp.ngrok.io';
+export const CHATURL = 'https://419b-220-68-223-111.jp.ngrok.io';
 
 const styles = StyleSheet.create({
   input: {
