@@ -29,7 +29,7 @@ const Home = () => {
   let time = 0; // 맨트 노출 시간
   const onAndroidBackPress = () => {
       time += 1;
-        toastWithDurationHandler(); // 뒤로가기 토스트 바 
+        toastWithDurationHandler(); // 뒤로가기 토스트 바
       if (time === 1) {
         setTimeout(() => time = 0, 2000);
       }
