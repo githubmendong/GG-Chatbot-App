@@ -1,4 +1,6 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable no-return-assign */
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /**
  * Sample React Native App
@@ -11,14 +13,40 @@
  */
 
 import React, { useEffect } from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { Scroll } from './components/Scroll';
-import { PermissionsAndroid } from 'react-native';
-
+import { BackHandler, PermissionsAndroid, ToastAndroid } from 'react-native';
 const Stack = createNativeStackNavigator();
 
 const Home = () => {
+  const navigation:any = useNavigation();
+
+  const toastWithDurationHandler = () => {
+    ToastAndroid.show("'뒤로' 버튼을  한번 더 누르시면 종료됩니다.", ToastAndroid.SHORT);
+  };
+
+  let time = 0; // 맨트 노출 시간
+  const onAndroidBackPress = () => {
+      time += 1;
+        toastWithDurationHandler(); // 뒤로가기 토스트 바 
+      if (time === 1) {
+        setTimeout(() => time = 0, 2000);
+      }
+      else if (time === 2) {
+        BackHandler.exitApp(); // 어플 종료
+        return false;
+      }
+    return true;
+  };
+
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', onAndroidBackPress);
+    return () => {
+      BackHandler.removeEventListener('hardwareBackPress', onAndroidBackPress);
+    };
+  }, []);
+
   useEffect(() => {
     PermissionsAndroid.requestMultiple([
       PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
