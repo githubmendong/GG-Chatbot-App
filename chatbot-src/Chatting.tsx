@@ -22,7 +22,7 @@ import {SuggestedSearch} from './Utils/SuggestedSearch';
 
 export let POSTDATA:string = '';
 const WIDTH = Dimensions.get('window').width;
-export const CHATURL = 'https://419b-220-68-223-111.jp.ngrok.io';
+export const CHATURL = 'https://c891-220-68-223-111.jp.ngrok.io';
 
 const styles = StyleSheet.create({
   input: {
