@@ -11,7 +11,7 @@ import Direction from './K_Map/Direction';
 import { POSTDATA } from '../chatbot-src/Chatting';
 
 
-export const URL = 'https://4a8b-220-68-223-111.jp.ngrok.io';
+export const URL = 'https://5a8f-220-68-223-111.jp.ngrok.io';
 export const Ws36 = ()=>{
   const webviewRef:any = useRef();
   return (    
