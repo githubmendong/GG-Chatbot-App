@@ -1,6 +1,9 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable no-array-constructor */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable no-trailing-spaces */
 import React, {useEffect, useState} from 'react';
 import {
   Dimensions,
@@ -32,12 +35,12 @@ function S({webviewRef, _state}: any) {
   const [selectedId, setSelectedId] = useState(null);
 
   useEffect(() => {
-    setState(current => !current)
+    setState(current => !current);
   }, [_state]);
 
   useEffect(() => {
     searchMessage();
-    setState(current => !current)
+    setState(current => !current);
   }, []);
 
   const onPress = () => {
@@ -108,7 +111,7 @@ function S({webviewRef, _state}: any) {
   
   const sendlatlng = async (temp: any) => {
       await onPress();
-      setTimeout(() => _sendlatlng(temp),118)
+      setTimeout(() => _sendlatlng(temp),118);
       
   };
 
@@ -126,7 +129,7 @@ function S({webviewRef, _state}: any) {
     }
     const sendData = JSON.stringify(latlng);
     await webviewRef.current.postMessage(sendData);
-  }
+  };
 
   return (
     <Modal

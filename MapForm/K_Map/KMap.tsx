@@ -2,8 +2,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable keyword-spacing */
 /* eslint-disable no-array-constructor */
-/* eslint-disable react-hooks/exhaustive-deps */
-
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from 'react';
