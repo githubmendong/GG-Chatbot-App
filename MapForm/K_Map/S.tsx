@@ -102,24 +102,28 @@ function S({webviewRef, _state}: any) {
     filter(text);
     setInputText(text);
   };
-
+  
   const sendlatlng = async (temp: any) => {
-      onPress();
-
-      const latlng = new Array();
-
-      for (let i of data) {
-        if (temp.id === i.id) {
-          const _data = {
-            picket: 'location',
-          };
-          latlng.push(_data);
-          latlng.push(i);
-        }
-      }
-      const sendData = JSON.stringify(latlng);
-      await webviewRef.current.postMessage(sendData);
+      await onPress();
+      setTimeout(() => _sendlatlng(temp),118)
+      
   };
+
+  const _sendlatlng = async (temp: any) => {
+    const latlng = new Array();
+
+    for (let i of data) {
+      if (temp.id === i.id) {
+        const _data = {
+          picket: 'location',
+        };
+        latlng.push(_data);
+        latlng.push(i);
+      }
+    }
+    const sendData = JSON.stringify(latlng);
+    await webviewRef.current.postMessage(sendData);
+  }
 
   return (
     <Modal
