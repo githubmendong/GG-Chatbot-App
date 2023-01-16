@@ -78,7 +78,7 @@ export const Screen = ({_state, _name}: any) => {
           <Pressable
             style={modalstyles.phonbtn}
             onPress={() => Linking.openURL(`tel:042${tel_arr[1]}`)}>
-            <Text style={{color: '#8181F7'}}>{tel_arr[1]}</Text>
+            <Text style={{color: 'blue'}}>{tel_arr[1]}</Text>
           </Pressable>
         </View>
       );

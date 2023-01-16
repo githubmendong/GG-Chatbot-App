@@ -311,7 +311,6 @@
         }
       }
       else if (latlng[0].picket == "location") {
-        close()
         panTo(latlng[1].latitude, latlng[1].longtitude)
         window.ReactNativeWebView.postMessage(latlng[1].name);
       }

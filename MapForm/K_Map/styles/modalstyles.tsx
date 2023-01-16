@@ -48,7 +48,7 @@ const modalstyles = StyleSheet.create({
       borderColor: 'lightgray',
       backgroundColor: 'lightgray',
       padding: 10,
-      // elevation: 2
+      elevation: 2,
     },
     textStyle: {
       color: '#02183c',
