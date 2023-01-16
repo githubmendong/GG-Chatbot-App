@@ -15,6 +15,7 @@ import Search from './Search';
 import Bori from './Bori';
 import { Screen } from './Screen';
 import { URL } from '../Ws36';
+import S from './S';
 
 function KMap({webviewRef}:any) {
   
@@ -121,7 +122,8 @@ return(
     allowFileAccess={true}
     onLoadEnd={sendMessage}
     />
-    <Search webviewRef={webviewRef} state={state}/>
+    {/* <Search webviewRef={webviewRef} state={state}/> */}
+    <S webviewRef={webviewRef} _state={state}/>
     {/* <Bori state={state}/> */}
     <Screen _state={open} _name={name}/>
   </>

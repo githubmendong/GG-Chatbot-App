@@ -13,9 +13,6 @@ import { AutocompleteDropdown } from 'react-native-autocomplete-dropdown';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { URL } from '../Ws36';
 
-const WIDTH = Dimensions.get('window').width;
-const HEIGHT = Dimensions.get('window').height;
-
 function Search({webviewRef, state}:any )
 {
     const [list, setList] = useState<any[]>([]);
