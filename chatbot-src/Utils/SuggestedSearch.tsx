@@ -25,7 +25,6 @@ export const SuggestedSearch = ({topSearch, suggestedAddChatting}: any) => {
     style={{
       backgroundColor: '#f7f6f7',
       paddingVertical: 5,
-      paddingHorizontal: 10,
     }}>
       {false ? (
         <ActivityIndicator color="white" size={20} />
@@ -36,7 +35,9 @@ export const SuggestedSearch = ({topSearch, suggestedAddChatting}: any) => {
             style={{
               padding: 2,
               paddingHorizontal: 40,
-              margin: 5,
+              marginTop: 5,
+              marginBottom: 5,
+              marginRight: 5,
               borderRadius: 8,
               backgroundColor: '#4b518a',
               borderWidth: 1,

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prettier/prettier */
 
 /* eslint-disable react-hooks/exhaustive-deps */
@@ -13,6 +14,7 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
+import { changeGlobalStr } from '../App';
 import {IntroSystemChat} from './ChatForm/IntroSystemChat';
 import {UserChat} from './ChatForm/UserChat';
 import {AutoComplete} from './Utils/AutoComplete';
@@ -20,10 +22,10 @@ import {GuideModal} from './Utils/GuideModal';
 import {SelectSystemChat} from './Utils/SelectSystemChat';
 import {SuggestedSearch} from './Utils/SuggestedSearch';
 
-export let POSTDATA:string = '';
-const WIDTH = Dimensions.get('window').width;
-export const CHATURL = 'https://c891-220-68-223-111.jp.ngrok.io';
 
+const WIDTH = Dimensions.get('window').width;
+export const CHATURL = 'https://d47c-220-68-223-111.jp.ngrok.io';
+export let POSTDATA:any;
 const styles = StyleSheet.create({
   input: {
     backgroundColor: 'white',
@@ -81,7 +83,6 @@ export const Chatting = () => {
 
   const onChangeText = (value: string) => {
     setText(value);
-    
   };
 
   const ExAddChatting = (_text: string) => {
@@ -104,6 +105,32 @@ export const Chatting = () => {
           return value;
         })}
       </ScrollView>
+      <View style={{ flexDirection: 'row' }}>
+      <TouchableOpacity
+      style={{
+        marginRight: 5,
+        marginLeft: 5,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        // borderColor: '#b7c5ff',
+        // borderWidth: 1,
+        // borderRadius: 10,
+        // backgroundColor: 'white',
+        width: 50,
+        height: 35,
+        }}
+        onPress={()=>{
+          changeGlobalStr();
+          }}
+        >
+        <Image
+          style={{height: 40, width: 40, alignItems: 'center', marginLeft: 5}}
+          source={{
+            uri: 'https://i.ibb.co/rcxSjQC/Kakao-Talk-20230112-135025159.png',
+          }}
+        />
+      </TouchableOpacity>
       {text.length === 0 ? (
         <SuggestedSearch
           topSearch={topSearch}
@@ -112,6 +139,7 @@ export const Chatting = () => {
       ) : (
         <AutoComplete text={text} ukey={UKEY} addChattings={addChattings} />
       )}
+      </View>
       <View style={{ flexDirection: 'row'}}>
       <TextInput
         onSubmitEditing={() => {
